@@ -43,7 +43,7 @@
         //------- pin koodin tarkistus------------------
         async function checkPin() {
             var pin = document.getElementById("pin").value
-            const response = await fetch("http://localhost:3000/api/getpin")
+            const response = await fetch("http://localhost:4000/api/getpin")
             const correctPin = await response.json()
     
             if (pin == correctPin) {
@@ -81,7 +81,7 @@
         var x = `<table><thead><th>Herkun nimi</th><th>tuotekoodi</th></thead><tbody>`
 
         try {
-            const response = await fetch("http://localhost:3000/api/herkut")
+            const response = await fetch("http://localhost:4000/api/herkut")
 
             const herkkudata = await response.json() // muutetaan json => javascript muotoon
 
