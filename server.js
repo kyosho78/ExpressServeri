@@ -20,7 +20,7 @@ app.get('/api/herkut', (req, res) => {
         const savedPin = await fs.readFile('./pin.txt')
         
         // Send the file content as the response
-        // res.send(savedPin)
+        res.send(savedPin)
         res.json({ pinkoodi: savedPin });
 
     } catch (error) {
