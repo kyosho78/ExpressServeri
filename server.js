@@ -2,13 +2,17 @@
 const path = require('path')
 const express = require('express')
 const fs = require('fs').promises
+const cors = require('cors');
 
 const app = express()
 
-const herkut = require('./herkut.json')
+const herkut = require('./Herkut.json')
+
+// Use the CORS middleware
+app.use(cors());
 
 //GET ALL etsitään kaikki namit jsonista
-app.get('/api/herkut', (req, res) => {
+app.get('/api/Herkut', (req, res) => {
     res.json(herkut)
     })
 
@@ -17,11 +21,11 @@ app.get('/api/herkut', (req, res) => {
  app.get('/api/getpin', async (req, res) => {
     try {
         // Read the content of the text file
-        const savedPin = await fs.readFile('./pin.txt')
+        const savedPin = await fs.readFile('./pin.txt', 'utf-8')
         
         // Send the file content as the response
         res.send(savedPin)
-        res.json({ pinkoodi: savedPin });
+       
 
     } catch (error) {
         console.error('Error reading file:', error)

@@ -1,43 +1,40 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
     <title>Herkut</title>
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="style.css" />
 </head>
-
 
 <body>
     <center>
-
         <div id="pin-div">
             <input id="pin" placeholder="pin code" type="password" />
-            <button onclick="checkPin()">login</button>
+            <button onclick="checkPin()">Login</button>
         </div>
 
-    <h1 class="hidden">Herkkuja</h1>
+        <h1 class="hidden">Herkkuja</h1>
 
-    <h2 id="welcome">Tervetuloa selailemaan herkkuja!</h2>
+        <h2 id="welcome">Tervetuloa selailemaan herkkuja!</h2>
 
-    <button class="hidden" onclick="logOut()">Logout</button>
+        <button class="hidden" onclick="logOut()">Logout</button>
 
-    <div class="hidden" id="sisältö"></div>
+        <div class="hidden" id="sisältö"></div>
     </center>
 
     <script>
-
         const savedPin = localStorage.getItem("pinkoodi")
         if (savedPin != null && savedPin != undefined) {
             showElements()
         }
 
-        //--------log out-----------------------------------------------
-
+        // Log out function
         function logOut() {
+            console.log
             localStorage.clear()
+            // Redirect back to the PIN code input page
             window.location.reload()
+
         }
 
 
